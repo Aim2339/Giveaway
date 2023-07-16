@@ -1,4 +1,4 @@
-const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder, ComponentType } = require("discord.js");
+const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder, ComponentType, ButtonBuilder, ButtonStyle } = require("discord.js");
 const config = require('../config.json');
 
 module.exports.run = async (client, message, args) => {
@@ -12,6 +12,28 @@ const embed = new EmbedBuilder()
 .setFooter({
   text: `Requested by ${message.author.username} | ` + config.copyright, 
   iconURL: message.author.displayAvatarURL()
+});
+
+const allCommands = new EmbedBuilder()
+.setTitle("All Commands")
+.setColor("#2F3136")
+.setDescription("```yaml\nHere are all the commands categorized:```")
+.addFields(
+  {
+    name: "Categories » Giveaway (8)",
+    value:
+      "`/create`, `/drop`, `/edit`, `/end`, `/list`, `/pause`, `/reroll`, `/resume`",
+  },
+  {
+    name: "Categories » General (3)",
+    value:
+      "`/help`, `/invite`, `/ping`",
+  },
+)
+.setTimestamp()
+.setFooter({
+  text: `Requested by ${message.author.username} | ` + config.copyright,
+  iconURL: message.author.displayAvatarURL(),
 });
 
   const giveaway = new EmbedBuilder()
@@ -69,6 +91,18 @@ const embed = new EmbedBuilder()
             }
         ])
     ),
+    new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId("home-button")
+        .setLabel("Home")
+        .setStyle(ButtonStyle.Primary)
+        .setEmoji("🏠"),
+        new ButtonBuilder()
+        .setCustomId("all-commands-button")
+        .setLabel("All Commands")
+        .setStyle(ButtonStyle.Primary)
+        .setEmoji("📜"),
+    ),
 ];
 
 const initialMessage = await message.reply({ embeds: [embed], components: components(false) });
@@ -97,5 +131,24 @@ const filter = (interaction) => interaction.user.id === message.author.id;
                    components: [],
                 });
              }
+        })
+        const buttonCollector = message.channel.createMessageComponentCollector(
+          {
+            filter,
+            componentType: ComponentType.Button,
+            idle: 300000,
+            dispose: true,
+          }
+        );
+        buttonCollector.on("collect", (interaction) => {
+          if (interaction.customId === "all-commands-button") {
+            interaction
+              .update({ embeds: [allCommands], components: components(false) })
+              .catch((e) => {});
+          } else if (interaction.customId === "home-button") {
+            interaction
+              .update({ embeds: [embed], components: components(false) })
+              .catch((e) => {});
+          }
         });
 }
