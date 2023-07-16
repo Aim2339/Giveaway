@@ -3,10 +3,10 @@ module.exports.run = async (client, message, args) => {
   // If the member doesn't have enough permissions
   if (
     !message.member.permissions.has("ManageMessages") &&
-    !message.member.roles.cache.some(r => r.name === "Giveaways")
+    !message.member.roles.cache.some((r) => r.name === "Giveaways")
   ) {
     return message.reply(
-      ":x: You need to have the manage messages permissions to start giveaways."
+      ":x: You need to have the manage messages permissions to start giveaways.",
     );
   }
 
@@ -21,9 +21,7 @@ module.exports.run = async (client, message, args) => {
   let giveawayNumberWinners = parseInt(args[1]);
   // If the specified number of winners is not a number
   if (isNaN(giveawayNumberWinners) || parseInt(giveawayNumberWinners) <= 0) {
-    return message.reply(
-      ":x: You have to specify a valid number of winners!"
-    );
+    return message.reply(":x: You have to specify a valid number of winners!");
   }
 
   // Giveaway prize
@@ -43,7 +41,7 @@ module.exports.run = async (client, message, args) => {
     // specify drop
     isDrop: true,
     // Messages
-    messages
+    messages,
   });
   message.reply(`Giveaway started in ${giveawayChannel}!`);
-}
+};

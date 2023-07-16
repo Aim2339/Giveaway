@@ -1,17 +1,22 @@
 # GiveawayBot™
+
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
 ### A Discord Giveaway bot written in Discord.js to create & enjoy Feature rich and Seamless Giveaways within your very own Discord guild!
 
 ## Links
+
 - ### This Giveaway Bot Was Created by [ZeroSync](https://youtube.com/c/ZeroSync/)
 - [Youtube Channel](https://www.youtube.com/c/ZeroSync)
 - [Support Server Link](https://discord.gg/ARu4hr6hJw)
 
 ## Licensed Under
+
 ### Creative Commons Zero v1.0 Universal
+
 [View the license here](https://github.com/ZeroDiscord/Giveaway/blob/master/LICENSE)
-#### Copyright 2021 © All Rights are Reserved 
+
+#### Copyright 2021 © All Rights are Reserved
 
 # Contributions
 
@@ -27,16 +32,21 @@ Please read [code of conduct](.github/CODE_OF_CONDUCT.md) for details on our cod
 [![forthebadge](https://forthebadge.com/images/badges/it-works-why.svg)](https://forthebadge.com)
 
 # You can run the bot in just a few steps! Let me show you how:
-## Hosting 
-> ⚠  This bot needs a [Node.js v16.9+](https://nodejs.org/en/blog/release/v16.9.0/)  runtime to function since discord.js version 14 requires said node version to function.
+
+## Hosting
+
+> ⚠ This bot needs a [Node.js v16.9+](https://nodejs.org/en/blog/release/v16.9.0/) runtime to function since discord.js version 14 requires said node version to function.
 
 ### [Host On Repl.it](https://repl.it/github/ZeroDiscord/Giveaway)
+
 ### [Remix On Glitch](https://glitch.com/edit/#!/import/github/ZeroDiscord/Giveaway)
 
 **Aliter**
 
 ### Step 1: Install the Dependencies:
-Linux 
+
+Linux
+
 ```sh
 wget https://nodejs.org/dist/v16.18.0/node-v16.18.0-linux-x64.tar.xz
 unxz node-v16.18.0-linux-x64.tar.xz
@@ -49,33 +59,45 @@ ln /usr/local/node/bin/npm /usr/bin
 
 corepack enable
 ```
-Windows 
+
+Windows
+
 ```sh
 # https://nodejs.org/en/blog/release/v16.9.1/ get node.js
-npm install 
+npm install
 ```
 
 ### Step 2: Obtain a Bot Token From [Here](https://discord.com/developers) <br> <br>
+
 ### Step 3 : Replace the Token in [config.json](https://github.com/ZeroDiscord/Giveaway/blob/master/config.json) <br>
+
 #### That's all! We Are Done! Now Simply host the Bot!
 
 ### Run with node
+
 ```sh
 node index.js
 ```
+
 ### Run with pm2
+
 ```sh
 npm install -g pm2@latest
 pm2 start --name "Giveaway" index.js --watch
 ```
 
 # Features
-## Featuring | Slash Commands  
+
+## Featuring | Slash Commands
+
 ### Interactive Giveaway Creation
-### Featured ✨ Bonus Entries   
+
+### Featured ✨ Bonus Entries
+
 ### And Lots More!
+
 - Direct message when the server mentioned for joining is not joined
-- Direct message when the server mentioned for joining is joined 
+- Direct message when the server mentioned for joining is joined
 - Direct Message When User Reacts on an ended giveaway
 - Direct Message User On Removing Reaction
 - Direct Message Winner On Winning
